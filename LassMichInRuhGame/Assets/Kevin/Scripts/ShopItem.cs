@@ -15,18 +15,21 @@ public class ShopItem : MonoBehaviour
 
     public UnityEvent onPurchase;
 
+    int currentCost;
+
     private void Start()
     {
         icon.sprite = upgrade.icon;
         title.text = upgrade.name;
         description.text = upgrade.description;
-        buyText.text = $"Buy {upgrade.cost}";
+        currentCost = upgrade.cost;
         MoneyController.instance.amountChanged.AddListener(MoneyChanged);
         MoneyChanged();
     }
 
     private void MoneyChanged()
     {
+        buyText.text = $"Buy {currentCost}";
         buyButton.interactable = MoneyController.Amount >= upgrade.cost;
     }
 
@@ -34,6 +37,7 @@ public class ShopItem : MonoBehaviour
     {
         if (MoneyController.Amount >= upgrade.cost)
         {
+            currentCost += upgrade.costIncrease;
             MoneyController.Amount -= upgrade.cost;
             onPurchase?.Invoke();
         }
