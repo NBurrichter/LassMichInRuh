@@ -15,6 +15,7 @@ public class Dog : MonoBehaviour
     private bool hasTarget = false;
     private Vector3 idleTarget;
     public float idlesize = 2;
+    private float minIdle = 0;
 
     private void Start()
     {
@@ -53,9 +54,19 @@ public class Dog : MonoBehaviour
             {
                 hasTarget = false;
             }
+            if (Vector3.Distance(transform.position, target.transform.position) < 0.1f)
+            {
+                hasTarget = false;
+                minIdle = 2;
+                Vector2 randCirc = Random.insideUnitCircle;
+                idleTarget = anchor.position + new Vector3(randCirc.x * idlesize, 0, randCirc.y * idlesize);
+            }
+
         }
         else
         {
+            minIdle -= Time.deltaTime;
+
             if (Vector3.Distance(transform.position, idleTarget) >= 0.1f)
             {
                 transform.position += (idleTarget - transform.position).normalized * movespeed * Time.deltaTime;
@@ -70,7 +81,7 @@ public class Dog : MonoBehaviour
                 dogSprite.flipX = true;
             }
 
-            if (Random.Range(0, randomDelay) == 0)
+            if (Random.Range(0, randomDelay) == 0 && minIdle < 0)
             {
                 Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackDistance);
                 int i = 0;
