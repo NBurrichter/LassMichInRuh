@@ -33,6 +33,6 @@ public class SanityController : MonoBehaviour
 
     public void OnGUI()
     {
-        GUILayout.Label($"Sanity: {sanity}");
+        //GUILayout.Label($"Sanity: {sanity}");
     }
 }

@@ -55,7 +55,7 @@ public class MainCharacterController : MonoBehaviour
                 Debug.DrawLine(origin, origin + rayDirection * rayDistance);
                 for (var j = 0; j < hitCount; j++)
                 {
-                    if (hits[j].transform == col.transform)
+                    if (hits[j].transform == col.transform || hits[j].collider.isTrigger)
                     {
                         continue;
                     }
@@ -87,7 +87,7 @@ public class MainCharacterController : MonoBehaviour
                 Debug.DrawLine(origin, origin + rayDirection * rayDistance);
                 for (var j = 0; j < hitCount; j++)
                 {
-                    if (hits[j].transform == col.transform)
+                    if (hits[j].transform == col.transform || hits[j].collider.isTrigger)
                     {
                         continue;
                     }
@@ -109,7 +109,7 @@ public class MainCharacterController : MonoBehaviour
         for (var i = 0; i < colCount; i++)
         {
             var other = cols[i];
-            if (other == col)
+            if (other == col || other.isTrigger)
             {
                 continue;
             }
@@ -151,7 +151,6 @@ public class MainCharacterController : MonoBehaviour
 
     public void AdjustOrientation(Vector3 direction)
     {
-        Debug.Log(direction);
         if (direction.z == 0 && direction.x == 0)
         {
             return;
