@@ -41,7 +41,6 @@ public class EnemyController : MonoBehaviour
     public float reachDistance = 0.5f;
     private int pointID = 0;
     private int lastID = -1;
-    public int roamPointsLength = 3;
     [Header("WalkTarget")]
     public Transform target;
 
@@ -115,7 +114,7 @@ public class EnemyController : MonoBehaviour
         bool found = false;
         do
         {
-            pointID = Random.Range(0, roamPointsLength);
+            pointID = Random.Range(0, roamPoints.Length);
             if (pointID != lastID)
             {
                 found = true;
