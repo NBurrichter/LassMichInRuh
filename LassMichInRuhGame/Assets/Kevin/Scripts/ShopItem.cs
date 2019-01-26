@@ -16,6 +16,7 @@ public class ShopItem : MonoBehaviour
     public UnityEvent onPurchase;
 
     int currentCost;
+    int upgradesLeft;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class ShopItem : MonoBehaviour
         title.text = upgrade.name;
         description.text = upgrade.description;
         currentCost = upgrade.cost;
+        upgradesLeft = upgrade.maxUpgrades;
         MoneyController.instance.amountChanged.AddListener(MoneyChanged);
         MoneyChanged();
     }
@@ -30,7 +32,17 @@ public class ShopItem : MonoBehaviour
     private void MoneyChanged()
     {
         buyText.text = $"Buy {currentCost}";
-        buyButton.interactable = MoneyController.Amount >= upgrade.cost;
+        if (upgradesLeft <= 0)
+        {
+            buyButton.interactable = false;
+            buyText.text = "No Upgrades left";
+            return;
+        }
+        else
+        {
+            buyButton.interactable = MoneyController.Amount >= upgrade.cost;
+        }
+        
     }
 
     public void TriggerPurchase()
@@ -38,6 +50,7 @@ public class ShopItem : MonoBehaviour
         if (MoneyController.Amount >= upgrade.cost)
         {
             currentCost += upgrade.costIncrease;
+            upgradesLeft--;
             MoneyController.Amount -= upgrade.cost;
             onPurchase?.Invoke();
         }

@@ -9,4 +9,5 @@ public class ShopUpgrade : ScriptableObject
     public string description;
     public int cost;
     public int costIncrease;
+    public int maxUpgrades;
 }

@@ -16,3 +16,4 @@ MonoBehaviour:
   description: A Bush is a Bush
   cost: 50
   costIncrease: 20
+  maxUpgrades: 2
