@@ -134,7 +134,7 @@ public class MainCharacterController : MonoBehaviour
                 recoilDirection = -fireDirection;
                 */
                 lastFire = Time.time;
-                var bullet = Instantiate(bulletPrefab, col.bounds.ClosestPoint(mousePos), Quaternion.Euler(90, 0, 0));
+                var bullet = Instantiate(bulletPrefab, col.bounds.ClosestPoint(mousePos) + Vector3.up * 0.2f, Quaternion.Euler(90, 0, 0));
                 var controller = bullet.GetComponent<BulletController>();
                 var bulletCollider = bullet.GetComponent<Collider>();
                 Vector3 bullDirection;
@@ -144,8 +144,8 @@ public class MainCharacterController : MonoBehaviour
 
 
                 controller.direction = fireDirection;
-                controller.speed = 1;
-                Destroy(bullet, 1);
+                //controller.speed = 1;
+                //Destroy(bullet, 1);
             }
             AdjustOrientation(fireDirection);
         }

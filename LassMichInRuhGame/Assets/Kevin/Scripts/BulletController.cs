@@ -7,8 +7,15 @@ public class BulletController : MonoBehaviour
     public Vector3 direction;
     public float speed;
 
+    Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     private void Update()
     {
-        transform.position += direction * speed;
+        rb.MovePosition(transform.position + direction * speed);
     }
 }

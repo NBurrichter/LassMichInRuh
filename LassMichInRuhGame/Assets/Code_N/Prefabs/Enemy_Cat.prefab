@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1045294408445464930}
   - component: {fileID: 1062898848496864409}
   - component: {fileID: 8709362141961955039}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 2821602034471762091}
   - component: {fileID: 1584722363795402739}
   - component: {fileID: 2065191036923206480}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy_Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8328560314465579134}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

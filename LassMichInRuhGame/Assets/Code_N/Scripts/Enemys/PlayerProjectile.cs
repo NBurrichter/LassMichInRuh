@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class PlayerProjectile : MonoBehaviour
 {
 
     [SerializeField]
@@ -27,8 +27,12 @@ public class Projectile : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(transform.position + transform.forward * moveSpeed);
+        //rb.MovePosition(transform.position + transform.forward * moveSpeed);
         if(Vector3.Distance(startpos,transform.position) >= travelDistance)
+        {
+            Destroy(gameObject);
+        }
+        if (Physics.Raycast(transform.position, transform.forward, moveSpeed, wallLayer))
         {
             Destroy(gameObject);
         }
@@ -43,8 +47,8 @@ public class Projectile : MonoBehaviour
         }
         if (hitLayer == (hitLayer | (1 << collision.gameObject.layer)))
         {
-            SanityController.instance.RemoveSanity(damage);
-            Destroy(gameObject);
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            enemy.TakeDamage(damage);
         }
     }
 }
