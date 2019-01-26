@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
-    private float waveCooldown = 15;
+    private float waveCooldown = 5;
     private float currentWaveCooldown;
     int currentwave = 0;
 
@@ -18,7 +18,8 @@ public class WaveController : MonoBehaviour
     private void Update()
     {
         waveCooldown -= Time.deltaTime;
-        if(waveCooldown <= 0)
+        Debug.Log(currentwave);
+        if (waveCooldown <= 0)
         {
             foreach(int spawnerNumber in waves[currentwave].spawnerToActivate)
             {

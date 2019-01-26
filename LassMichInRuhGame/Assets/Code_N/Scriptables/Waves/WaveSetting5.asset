@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: WaveSetting5
   m_EditorClassIdentifier: 
   spawnerToActivate: 0200000002000000020000000200000002000000070000000700000007000000
-  waitTime: 15
+  waitTime: 20
   neighbour: 0
