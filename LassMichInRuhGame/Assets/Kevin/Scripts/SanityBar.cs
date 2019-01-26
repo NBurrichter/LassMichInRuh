@@ -9,6 +9,15 @@ public class SanityBar : MonoBehaviour
 {
     public RectTransform maskBar;
     public Image bar;
+    public Image smiley;
+    public Color fine;
+    public Color ok;
+    public Color annoyed;
+    public Color critical;
+    public Sprite fineSprite;
+    public Sprite okSprite;
+    public Sprite annoyedSprite;
+    public Sprite criticalSprite;
     float currentDisplay;
     float velocity;
 
@@ -25,7 +34,23 @@ public class SanityBar : MonoBehaviour
 
         if (currentDisplay < 0.2f)
         {
-            //curre
+            bar.color = critical;
+            smiley.sprite = criticalSprite;
+        }
+        else if (currentDisplay < 0.5f)
+        {
+            bar.color = annoyed;
+            smiley.sprite = annoyedSprite;
+        }
+        else if (currentDisplay < 0.75f)
+        {
+            bar.color = ok;
+            smiley.sprite = okSprite;
+        }
+        else
+        {
+            bar.color = fine;
+            smiley.sprite = fineSprite;
         }
         var anchorMax = maskBar.anchorMax;
         anchorMax.y = currentDisplay;
