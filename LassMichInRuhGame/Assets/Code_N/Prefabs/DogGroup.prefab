@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 954401449}
   - component: {fileID: 954401450}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2091098977}
   - component: {fileID: 2091098979}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Collar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 7180997978924384321}
   - component: {fileID: 1782347818}
   - component: {fileID: 1782347819}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7180997980169526242}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: DogGroup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
