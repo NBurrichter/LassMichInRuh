@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4572770657214369370}
-  - component: {fileID: 4572770657214369371}
   - component: {fileID: 8607041393598708450}
   - component: {fileID: 6159952575997478347}
   - component: {fileID: 727342952440657363}
@@ -30,17 +29,103 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
-  m_Children: []
+  m_Children:
+  - {fileID: 4063093141536245234}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4572770657214369371
-SpriteRenderer:
+--- !u!114 &8607041393598708450
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4572770657214369372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 427a1602c6058dc4bbd19b8068974423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.3
+  fireRate: 10
+  bulletPrefab: {fileID: 8349597903553509465, guid: 99fe259ae74014c45a59786a2e4cb77d,
+    type: 3}
+  leftSprite: {fileID: 21300000, guid: 384779bf5a0e61b4b895fff15a41b308, type: 3}
+  upSprite: {fileID: 21300004, guid: 384779bf5a0e61b4b895fff15a41b308, type: 3}
+  downSprite: {fileID: 21300002, guid: 384779bf5a0e61b4b895fff15a41b308, type: 3}
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 1
+  renderer: {fileID: 217867811992257396}
+--- !u!65 &6159952575997478347
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4572770657214369372}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.5, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &727342952440657363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4572770657214369372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27beabd7963c3bc4687922cef5a563c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSanity: 100
+  OnInsane:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!1 &6791551896840396006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4063093141536245234}
+  - component: {fileID: 217867811992257396}
+  m_Layer: 0
+  m_Name: Sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4063093141536245234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6791551896840396006}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4572770657214369370}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &217867811992257396
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6791551896840396006}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,59 +161,9 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.3, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8607041393598708450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4572770657214369372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 427a1602c6058dc4bbd19b8068974423, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.3
-  fireRate: 10
-  bulletPrefab: {fileID: 8349597903553509465, guid: 99fe259ae74014c45a59786a2e4cb77d,
-    type: 3}
-  leftSprite: {fileID: 21300000, guid: 384779bf5a0e61b4b895fff15a41b308, type: 3}
-  upSprite: {fileID: 21300004, guid: 384779bf5a0e61b4b895fff15a41b308, type: 3}
-  downSprite: {fileID: 21300002, guid: 384779bf5a0e61b4b895fff15a41b308, type: 3}
---- !u!65 &6159952575997478347
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4572770657214369372}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.5, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &727342952440657363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4572770657214369372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27beabd7963c3bc4687922cef5a563c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSanity: 100
-  OnInsane:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null

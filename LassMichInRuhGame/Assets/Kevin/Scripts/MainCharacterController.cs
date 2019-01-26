@@ -12,7 +12,7 @@ public class MainCharacterController : MonoBehaviour
     public Sprite downSprite;
     public LayerMask collisionMask;
     private Collider col;
-    private SpriteRenderer renderer;
+    public SpriteRenderer renderer;
     RaycastHit[] hits = new RaycastHit[1024];
     Collider[] cols = new Collider[1024];
     float lastFire = 0;
@@ -22,7 +22,6 @@ public class MainCharacterController : MonoBehaviour
     private void Awake()
     {
         col = GetComponent<Collider>();
-        renderer = GetComponent<SpriteRenderer>();
     }
 
 
