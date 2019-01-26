@@ -16,4 +16,4 @@ MonoBehaviour:
   description: A Fence, no offense
   cost: 50
   costIncrease: 0
-  maxUpgrades: 0
+  maxUpgrades: 3

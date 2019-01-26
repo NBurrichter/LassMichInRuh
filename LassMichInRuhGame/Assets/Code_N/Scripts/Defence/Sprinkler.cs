@@ -15,7 +15,7 @@ public class Sprinkler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
+        //Debug.Log(other.gameObject.name);
         Enemy enemy = other.GetComponent<Enemy>();
 
         if(enemy != null)

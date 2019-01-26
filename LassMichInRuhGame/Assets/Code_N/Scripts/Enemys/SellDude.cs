@@ -14,7 +14,7 @@ public class SellDude : MonoBehaviour
         annoydelay -= Time.deltaTime;
         if (annoydelay <= 0)
         {
-            annoydelay = 1;
+            annoydelay = 3;
             SanityController.instance.RemoveSanity(annoy);
         }
     }
