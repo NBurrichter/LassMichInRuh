@@ -37,22 +37,23 @@ public class MainCharacterController : MonoBehaviour
         {
             AdjustOrientation(direction);
         }
+
         
 
         if (movement.x != 0)
         {
+            float correction = 0;
             for (var i = 0; i < castsPerCount; i++)
             {
-                var xBounds = direction.x < 0 ? col.bounds.min : col.bounds.max;
-                var originX = xBounds.x;
+                var originX = transform.position.x;
                 var startY = col.bounds.max.z;
                 var endY = col.bounds.min.z;
-                var rayDirection = direction;
-                var rayDistance = Mathf.Abs(direction.x * distance);
-                rayDirection.z = 0;
+                var rayDirection = direction.x < 0 ? Vector3.left : Vector3.right;
+                var rayDistance = col.bounds.extents.x + Mathf.Abs(direction.x * distance);
                 var origin = new Vector3(originX, transform.position.y, Mathf.Lerp(startY, endY, (float)i / (castsPerCount - 1)));
                 var hitCount = Physics.RaycastNonAlloc(origin, rayDirection, hits, rayDistance);
                 Debug.DrawLine(origin, origin + rayDirection * rayDistance);
+                
                 for (var j = 0; j < hitCount; j++)
                 {
                     if (hits[j].transform == col.transform || hits[j].collider.isTrigger)
@@ -60,31 +61,28 @@ public class MainCharacterController : MonoBehaviour
                         continue;
                     }
 
-                    GetComponent<SanityController>().RemoveSanity(1);
                     var point = hits[j].point;
-                    var hitDistance = point.x - origin.x;
-                    if (Mathf.Abs(movement.x) > Mathf.Abs(hitDistance))
-                    {
-                        movement.x = hitDistance;
-                    }
+                    var hitDistance = rayDistance - Mathf.Abs(point.x - origin.x);
+                    correction = Mathf.Max(hitDistance, correction);
                 }
             }
+            movement.x += direction.x < 0 ? correction : -correction;
         }
 
         if (movement.z != 0)
         {
+            float correction = 0;
             for (var i = 0; i < castsPerCount; i++)
             {
-                var xBounds = direction.z < 0 ? col.bounds.min : col.bounds.max;
-                var originX = xBounds.z;
+                var originX = transform.position.z;
                 var startY = col.bounds.max.x;
                 var endY = col.bounds.min.x;
-                var rayDirection = direction;
-                var rayDistance = Mathf.Abs(direction.z * distance);
-                rayDirection.x = 0;
+                var rayDirection = new Vector3( 0, 0, direction.z < 0 ? -1 : 1);
+                var rayDistance = Mathf.Abs(col.bounds.extents.z) + Mathf.Abs(direction.z * distance);
                 var origin = new Vector3(Mathf.Lerp(startY, endY, (float)i / (castsPerCount - 1)), transform.position.y, originX);
                 var hitCount = Physics.RaycastNonAlloc(origin, rayDirection, hits, rayDistance);
                 Debug.DrawLine(origin, origin + rayDirection * rayDistance);
+                Debug.Log($"{origin} {origin + rayDirection * rayDistance}");
                 for (var j = 0; j < hitCount; j++)
                 {
                     if (hits[j].transform == col.transform || hits[j].collider.isTrigger)
@@ -92,33 +90,15 @@ public class MainCharacterController : MonoBehaviour
                         continue;
                     }
 
-                    GetComponent<SanityController>().RemoveSanity(1);
                     var point = hits[j].point;
-                    var hitDistance = point.z - origin.z;
-                    if (Mathf.Abs(movement.z) > Mathf.Abs(hitDistance))
-                    {
-                        movement.z = hitDistance;
-                    }
+                    var hitDistance = rayDistance - Mathf.Abs(point.z - origin.z);
+                    correction = Mathf.Max(hitDistance, correction);
                 }
             }
+            movement.z += direction.z < 0 ? correction : -correction;
         }
 
         transform.position += movement;
-
-        var colCount = Physics.OverlapBoxNonAlloc(col.bounds.center, col.bounds.extents / 2, cols);
-        for (var i = 0; i < colCount; i++)
-        {
-            var other = cols[i];
-            if (other == col || other.isTrigger)
-            {
-                continue;
-            }
-            Debug.Log("Overlap");
-            Vector3 trans;
-            float transDist;
-            Physics.ComputePenetration(col, transform.position, transform.rotation, other, other.transform.position, other.transform.rotation, out trans, out transDist);
-            transform.position += trans * transDist;
-        }
 
         var adjustOrientation = direction;
         if (Input.GetButton("Fire1"))
