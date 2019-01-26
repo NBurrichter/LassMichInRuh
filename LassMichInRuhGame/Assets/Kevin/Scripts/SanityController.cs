@@ -30,9 +30,4 @@ public class SanityController : MonoBehaviour
             OnInsane.Invoke();
         }
     }
-
-    public void OnGUI()
-    {
-        //GUILayout.Label($"Sanity: {sanity}");
-    }
 }

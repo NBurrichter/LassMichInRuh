@@ -5,6 +5,7 @@ using UnityEngine;
 public class MainCharacterController : MonoBehaviour
 {
     public float speed = 1f;
+    public float acceleration = 0.2f;
     public float fireRate = 10;
     public GameObject bulletPrefab;
     public Sprite leftSprite;
@@ -16,6 +17,9 @@ public class MainCharacterController : MonoBehaviour
     RaycastHit[] hits = new RaycastHit[1024];
     Collider[] cols = new Collider[1024];
     float lastFire = 0;
+    Vector3 velocity = Vector3.zero;
+    float recoilLeft;
+    Vector3 recoilDirection;
 
     const int castsPerCount = 5;
 
@@ -29,16 +33,26 @@ public class MainCharacterController : MonoBehaviour
     {
         var axis = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         var direction = axis.normalized;
-        var distance = Mathf.Min(1, axis.magnitude) * speed;
-        var movement = direction * distance;
-        var xLimit = direction.x > 0 ? Mathf.Infinity : -Mathf.Infinity;
+        velocity = acceleration * direction * Mathf.Min(1, axis.magnitude) * speed + (1 - acceleration) * velocity;
 
-        if (movement.magnitude > 0)
+       
+        if (velocity.magnitude > 0)
         {
             AdjustOrientation(direction);
         }
 
-        
+        CheckFire();
+
+        if (recoilLeft > 0)
+        {
+            velocity += recoilDirection;
+            recoilLeft -= Time.deltaTime;
+        }
+
+        var distance = velocity.magnitude * Time.deltaTime;
+        var movement = velocity * Time.deltaTime;
+
+
 
         if (movement.x != 0)
         {
@@ -82,7 +96,7 @@ public class MainCharacterController : MonoBehaviour
                 var origin = new Vector3(Mathf.Lerp(startY, endY, (float)i / (castsPerCount - 1)), transform.position.y, originX);
                 var hitCount = Physics.RaycastNonAlloc(origin, rayDirection, hits, rayDistance, collisionMask);
                 Debug.DrawLine(origin, origin + rayDirection * rayDistance);
-                Debug.Log($"{origin} {origin + rayDirection * rayDistance}");
+
                 for (var j = 0; j < hitCount; j++)
                 {
                     if (hits[j].transform == col.transform || hits[j].collider.isTrigger)
@@ -99,8 +113,10 @@ public class MainCharacterController : MonoBehaviour
         }
 
         transform.position += movement;
+    }
 
-        var adjustOrientation = direction;
+    public void CheckFire()
+    {
         if (Input.GetButton("Fire1"))
         {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -109,13 +125,16 @@ public class MainCharacterController : MonoBehaviour
             plane.Raycast(ray, out enter);
             var mousePos = ray.GetPoint(enter);
             var fireDirection = mousePos - transform.position;
-            if (Time.time >= lastFire + (1/fireRate))
+            if (Time.time >= lastFire + (1 / fireRate))
             {
-                
                 fireDirection.y = 0;
                 fireDirection = fireDirection.normalized;
+                /*
+                recoilLeft = 0.3f;
+                recoilDirection = -fireDirection;
+                */
                 lastFire = Time.time;
-                var bullet = Instantiate(bulletPrefab, col.bounds.ClosestPoint(mousePos),Quaternion.Euler(90, 0, 0));
+                var bullet = Instantiate(bulletPrefab, col.bounds.ClosestPoint(mousePos), Quaternion.Euler(90, 0, 0));
                 var controller = bullet.GetComponent<BulletController>();
                 var bulletCollider = bullet.GetComponent<Collider>();
                 Vector3 bullDirection;
@@ -130,7 +149,6 @@ public class MainCharacterController : MonoBehaviour
             }
             AdjustOrientation(fireDirection);
         }
-
     }
 
     public void AdjustOrientation(Vector3 direction)

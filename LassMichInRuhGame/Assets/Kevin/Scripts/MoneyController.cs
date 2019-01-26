@@ -18,9 +18,4 @@ public class MoneyController : MonoBehaviour
         amount = startingMoney;
         instance = this;
     }
-
-    private void OnGUI()
-    {
-        GUILayout.Label($"Money: {Amount}");
-    }
 }
