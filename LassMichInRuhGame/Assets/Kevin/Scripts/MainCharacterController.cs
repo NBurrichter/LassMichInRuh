@@ -10,6 +10,7 @@ public class MainCharacterController : MonoBehaviour
     public Sprite leftSprite;
     public Sprite upSprite;
     public Sprite downSprite;
+    public LayerMask collisionMask;
     private Collider col;
     private SpriteRenderer renderer;
     RaycastHit[] hits = new RaycastHit[1024];
@@ -51,7 +52,7 @@ public class MainCharacterController : MonoBehaviour
                 var rayDirection = direction.x < 0 ? Vector3.left : Vector3.right;
                 var rayDistance = col.bounds.extents.x + Mathf.Abs(direction.x * distance);
                 var origin = new Vector3(originX, transform.position.y, Mathf.Lerp(startY, endY, (float)i / (castsPerCount - 1)));
-                var hitCount = Physics.RaycastNonAlloc(origin, rayDirection, hits, rayDistance);
+                var hitCount = Physics.RaycastNonAlloc(origin, rayDirection, hits, rayDistance, collisionMask);
                 Debug.DrawLine(origin, origin + rayDirection * rayDistance);
                 
                 for (var j = 0; j < hitCount; j++)
@@ -80,7 +81,7 @@ public class MainCharacterController : MonoBehaviour
                 var rayDirection = new Vector3( 0, 0, direction.z < 0 ? -1 : 1);
                 var rayDistance = Mathf.Abs(col.bounds.extents.z) + Mathf.Abs(direction.z * distance);
                 var origin = new Vector3(Mathf.Lerp(startY, endY, (float)i / (castsPerCount - 1)), transform.position.y, originX);
-                var hitCount = Physics.RaycastNonAlloc(origin, rayDirection, hits, rayDistance);
+                var hitCount = Physics.RaycastNonAlloc(origin, rayDirection, hits, rayDistance, collisionMask);
                 Debug.DrawLine(origin, origin + rayDirection * rayDistance);
                 Debug.Log($"{origin} {origin + rayDirection * rayDistance}");
                 for (var j = 0; j < hitCount; j++)
