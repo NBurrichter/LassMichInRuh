@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Dog : MonoBehaviour
 {
+    public SpriteRenderer dogSprite;
     public Transform anchor;
     public float anchorDistance;
     public int randomDelay = 100;
@@ -33,11 +34,19 @@ public class Dog : MonoBehaviour
     void Update()
     {
 
-        if(hasTarget == true)
+        if(hasTarget == true && target != null)
         {
             if (Vector3.Distance(transform.position + (target.transform.position - transform.position).normalized * movespeed * Time.deltaTime, anchor.position) < anchorDistance)
             {
                 transform.position += (target.transform.position- transform.position).normalized * movespeed * Time.deltaTime;
+                if( Vector3.Dot(target.transform.position - transform.position,Vector3.left)>=0)
+                {
+                    dogSprite.flipX = false;
+                }
+                else
+                {
+                    dogSprite.flipX = true;
+                }
             }
 
             if (Vector3.Distance(transform.position, target.transform.position) > loseDistance)
@@ -50,6 +59,15 @@ public class Dog : MonoBehaviour
             if (Vector3.Distance(transform.position, idleTarget) >= 0.1f)
             {
                 transform.position += (idleTarget - transform.position).normalized * movespeed * Time.deltaTime;
+            }
+
+            if (Vector3.Dot(idleTarget - transform.position, Vector3.left) >= 0)
+            {
+                dogSprite.flipX = false;
+            }
+            else
+            {
+                dogSprite.flipX = true;
             }
 
             if (Random.Range(0, randomDelay) == 0)

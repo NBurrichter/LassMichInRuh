@@ -31,6 +31,8 @@ public class EnemyController : MonoBehaviour
 
     private Vector3 playerApproachPoint;
     private float currentmoveTime = 0;
+    public SpriteRenderer sprite;
+
     [Header("Attack")]
     public Transform player;
 
@@ -49,10 +51,9 @@ public class EnemyController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
 
-        roamPoints = WaypointsController.waypoints.ToArray();
-
         if(currentAI == AI.Roam)
         {
+            roamPoints = WaypointsController.waypoints.ToArray();
             FindNewRoamPoint();
         }
         if(currentAI == AI.WalkTarget)
@@ -107,6 +108,18 @@ public class EnemyController : MonoBehaviour
             case AI.WalkTarget:
                 agent.SetDestination(target.position);
                 break;
+        }
+
+        if(sprite != null)
+        {
+            if(Vector3.Dot(agent.velocity,Vector3.left)>= 0)
+            {
+                sprite.flipX = false;
+            }
+            else
+            {
+                sprite.flipX = true;
+            }
         }
     }
 

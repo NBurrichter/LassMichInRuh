@@ -135,7 +135,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 7
   m_ObstacleAvoidanceType: 4
 --- !u!114 &2208511569679891474
 MonoBehaviour:
@@ -150,14 +150,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentAI: 2
+  sprite: {fileID: 0}
   player: {fileID: 0}
   attackSettings: {fileID: 11400000, guid: a9fbc9f5fed64ed49a6662451e7bb696, type: 2}
-  roamPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   reachDistance: 0.5
   target: {fileID: 0}
 --- !u!114 &2208511569679891472
@@ -226,8 +221,9 @@ MonoBehaviour:
   attackMask:
     serializedVersion: 2
     m_Bits: 4096
+  aggroRange: 4
   attackCooldown: 3
-  projectile: {fileID: 6138658638012689923, guid: 45e2cdb35e7ff8c49a1cd06bfabf2043,
+  projectile: {fileID: 189872014966149877, guid: 45e2cdb35e7ff8c49a1cd06bfabf2043,
     type: 3}
   repeats: 5
   repeatTime: 0.1
