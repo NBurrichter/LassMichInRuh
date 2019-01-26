@@ -21,6 +21,12 @@ public class ShopItem : MonoBehaviour
         title.text = upgrade.name;
         description.text = upgrade.description;
         buyText.text = $"Buy {upgrade.cost}";
+        MoneyController.instance.amountChanged.AddListener(MoneyChanged);
+        MoneyChanged();
+    }
+
+    private void MoneyChanged()
+    {
         buyButton.interactable = MoneyController.Amount >= upgrade.cost;
     }
 
