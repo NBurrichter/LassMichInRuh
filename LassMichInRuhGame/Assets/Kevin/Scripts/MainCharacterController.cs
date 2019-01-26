@@ -103,7 +103,11 @@ public class MainCharacterController : MonoBehaviour
         var adjustOrientation = direction;
         if (Input.GetButton("Fire1"))
         {
-            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            var plane = new Plane(Vector3.up, Vector3.zero);
+            float enter;
+            plane.Raycast(ray, out enter);
+            var mousePos = ray.GetPoint(enter);
             var fireDirection = mousePos - transform.position;
             if (Time.time >= lastFire + (1/fireRate))
             {
