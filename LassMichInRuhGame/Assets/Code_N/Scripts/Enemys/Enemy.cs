@@ -25,10 +25,10 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        if(Neighbour)
+        /*if(Neighbour)
         {
             StartWait();
-        }
+        }*/
     }
 
     public void Update()
@@ -66,7 +66,8 @@ public class Enemy : MonoBehaviour
             {
                 foreach (GameObject obj in deathObjects)
                 {
-                    Instantiate(obj, transform.position, obj.transform.rotation);
+                    GameObject spawned = Instantiate(obj, transform.position, obj.transform.rotation);
+                    Destroy(spawned, 9);
                 }
                 OnDie.Invoke();
                 Destroy(gameObject);
@@ -76,7 +77,8 @@ public class Enemy : MonoBehaviour
         {
             foreach (GameObject obj in hitObject)
             {
-                Instantiate(obj, transform.position, obj.transform.rotation);
+                GameObject spawned = Instantiate(obj, transform.position, obj.transform.rotation);
+                Destroy(spawned, 9);
             }
         }
     }
@@ -89,6 +91,13 @@ public class Enemy : MonoBehaviour
     IEnumerator ResetNeighbours()
     {
         yield return new WaitForSeconds(Random.Range(8, 10));
+        health = 10;
+        OnNeighbourReset.Invoke();
+        flee = false;
+    }
+
+    public void Reset()
+    {
         health = 10;
         OnNeighbourReset.Invoke();
         flee = false;

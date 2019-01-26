@@ -30,13 +30,13 @@ public class SpawnController : MonoBehaviour
 
     void Update()
     {
-        currentCooldown -= Time.deltaTime;
+        /*currentCooldown -= Time.deltaTime;
         if(currentCooldown <= 0)
         {
             repeatCounter = 0;
             InvokeRepeating("SpawnChar", 0, repeatTime);
             GetNewCooldown();
-        }
+        }*/
     }
 
     private void GetNewCooldown()
@@ -52,14 +52,14 @@ public class SpawnController : MonoBehaviour
         }
     }
 
-    private void SpawnChar()
+    public void SpawnChar()
     {
         GameObject enemy = Instantiate(spawnObject, transform.position, Quaternion.Euler(0, 0, 0));
         enemy.GetComponent<EnemyController>().SetWalkTarget(firstWaypoint);
-        repeatCounter++;
+        /*repeatCounter++;
         if(repeatCounter >= repeats)
         {
             CancelInvoke();
-        }
+        }*/
     }
 }
