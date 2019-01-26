@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eca60f0d7e83d64e93c62ab8945ec43, type: 3}
   m_Name: Bush
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 7b20d308cb0e31d4383998b230adff5a, type: 3}
+  icon: {fileID: 21300000, guid: 097f4257644c9564c8410c0edefdd7ff, type: 3}
   description: A Bush is a Bush
   cost: 50
   costIncrease: 20

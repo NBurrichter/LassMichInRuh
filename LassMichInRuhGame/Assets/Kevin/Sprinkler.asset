@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eca60f0d7e83d64e93c62ab8945ec43, type: 3}
   m_Name: Sprinkler
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300038, guid: b6d5026f7690faf41a80fe578b047dec, type: 3}
+  icon: {fileID: 21300000, guid: e394d0df155ff634e98db4b09230986d, type: 3}
   description: Splashy Splash
   cost: 50
   costIncrease: 0

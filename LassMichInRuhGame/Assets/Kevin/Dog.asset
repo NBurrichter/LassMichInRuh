@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eca60f0d7e83d64e93c62ab8945ec43, type: 3}
   m_Name: Dog
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300028, guid: b6d5026f7690faf41a80fe578b047dec, type: 3}
+  icon: {fileID: 21300000, guid: b1758aa72b490b142bd6f8cabb8fae70, type: 3}
   description: Wuff
   cost: 100
   costIncrease: 0
