@@ -12,6 +12,7 @@ public class BulletController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        transform.LookAt(transform.position + direction);
     }
 
     private void Update()

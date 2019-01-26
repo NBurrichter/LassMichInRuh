@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
         WaypointsController.AddWayPoint(transform);
     }

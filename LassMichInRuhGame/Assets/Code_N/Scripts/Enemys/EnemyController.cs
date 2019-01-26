@@ -46,10 +46,13 @@ public class EnemyController : MonoBehaviour
     [Header("WalkTarget")]
     public Transform target;
 
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
 
         if(currentAI == AI.Roam)
         {
@@ -110,17 +113,8 @@ public class EnemyController : MonoBehaviour
                 break;
         }
 
-        if(sprite != null)
-        {
-            if(Vector3.Dot(agent.velocity,Vector3.left)>= 0)
-            {
-                sprite.flipX = false;
-            }
-            else
-            {
-                sprite.flipX = true;
-            }
-        }
+        UpdateSprite();
+        
     }
 
 
@@ -137,5 +131,49 @@ public class EnemyController : MonoBehaviour
             }
         } while (!found);
         agent.SetDestination(roamPoints[pointID].position);
+    }
+
+    void UpdateSprite()
+    {
+        if (anim == null)
+            return;
+
+        if(Vector3.Dot(agent.desiredVelocity.normalized,Vector3.forward)>= 0.5f)
+        {
+            anim.SetBool("Up", true);
+            anim.SetBool("Side", false);
+            anim.SetBool("Down", false);
+            sprite.flipX = false;
+        }
+
+        if (Vector3.Dot(agent.desiredVelocity.normalized, Vector3.forward) <= -0.5f)
+        {
+            anim.SetBool("Up", false);
+            anim.SetBool("Side", false);
+            anim.SetBool("Down", true);
+            sprite.flipX = false;
+        }
+
+        if (Vector3.Dot(agent.desiredVelocity.normalized, Vector3.left) >= 0.5f)
+        {
+            anim.SetBool("Up", false);
+            anim.SetBool("Side", true);
+            anim.SetBool("Down", false);
+            sprite.flipX = false;
+        }
+
+        if (Vector3.Dot(agent.desiredVelocity.normalized, Vector3.left) <= -0.5f)
+        {
+            anim.SetBool("Up", false);
+            anim.SetBool("Side", true);
+            anim.SetBool("Down", false);
+            sprite.flipX = true;
+        }
+            
+    }
+
+    public void SetWalkTarget(Transform newTarget)
+    {
+        target = newTarget;
     }
 }

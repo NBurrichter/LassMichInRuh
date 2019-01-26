@@ -6,7 +6,7 @@ public class WaypointsController : MonoBehaviour
 {
     public static List<Transform> waypoints;
 
-    public void Start()
+    public void Awake()
     {
         waypoints = new List<Transform>();
     }

@@ -20,6 +20,8 @@ public class MainCharacterController : MonoBehaviour
     Vector3 velocity = Vector3.zero;
     float recoilLeft;
     Vector3 recoilDirection;
+    [SerializeField]
+    Transform firePoint;
 
     const int castsPerCount = 5;
 
@@ -134,13 +136,13 @@ public class MainCharacterController : MonoBehaviour
                 recoilDirection = -fireDirection;
                 */
                 lastFire = Time.time;
-                var bullet = Instantiate(bulletPrefab, col.bounds.ClosestPoint(mousePos) + Vector3.up * 0.2f, Quaternion.Euler(90, 0, 0));
+                var bullet = Instantiate(bulletPrefab, /*col.bounds.ClosestPoint(mousePos)*/firePoint.position, Quaternion.Euler(90, 0, 0));
                 var controller = bullet.GetComponent<BulletController>();
                 var bulletCollider = bullet.GetComponent<Collider>();
                 Vector3 bullDirection;
                 float bullDistance;
-                Physics.ComputePenetration(bulletCollider, bullet.transform.position, bullet.transform.rotation, col, transform.position, transform.rotation, out bullDirection, out bullDistance);
-                bullet.transform.position += bullDirection * bullDistance;
+                //Physics.ComputePenetration(bulletCollider, bullet.transform.position, bullet.transform.rotation, col, transform.position, transform.rotation, out bullDirection, out bullDistance);
+                bullet.transform.position += fireDirection * 0.5f;
 
 
                 controller.direction = fireDirection;
