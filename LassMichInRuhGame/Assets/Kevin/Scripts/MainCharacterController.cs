@@ -20,6 +20,8 @@ public class MainCharacterController : MonoBehaviour
     Vector3 velocity = Vector3.zero;
     float recoilLeft;
     Vector3 recoilDirection;
+    float currentSpeed;
+    int activeSlows = 0;
     [SerializeField]
     Transform firePoint;
 
@@ -28,6 +30,7 @@ public class MainCharacterController : MonoBehaviour
     private void Awake()
     {
         col = GetComponent<Collider>();
+        currentSpeed = speed;
     }
 
 
@@ -35,7 +38,15 @@ public class MainCharacterController : MonoBehaviour
     {
         var axis = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         var direction = axis.normalized;
-        velocity = acceleration * direction * Mathf.Min(1, axis.magnitude) * speed + (1 - acceleration) * velocity;
+        if (activeSlows <= 0)
+        {
+            currentSpeed = Mathf.MoveTowards(currentSpeed, speed, Time.deltaTime);
+        }
+        else if (activeSlows > 1)
+        {
+            currentSpeed = Mathf.MoveTowards(currentSpeed, speed/2, Time.deltaTime);
+        }
+        velocity = acceleration * direction * Mathf.Min(1, axis.magnitude) * currentSpeed + (1 - acceleration) * velocity;
 
        
         if (velocity.magnitude > 0)
@@ -183,6 +194,19 @@ public class MainCharacterController : MonoBehaviour
                 renderer.sprite = downSprite;
             }
         }
+    }
+
+    public void ApplyPoo()
+    {
+        StartCoroutine(SlowDown());
+    }
+
+    IEnumerator SlowDown()
+    {
+        activeSlows++;
+        currentSpeed *= 0.5f;
+        yield return new WaitForSeconds(2);
+        activeSlows--;
     }
         
 }
