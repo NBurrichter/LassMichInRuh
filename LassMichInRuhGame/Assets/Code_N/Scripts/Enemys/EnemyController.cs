@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
     public EnemyAttackSettings attackSettings;
     
     [Header("Roam")]
-    public Transform[] roamPoints;
+    private Transform[] roamPoints;
     public float reachDistance = 0.5f;
     private int pointID = 0;
     private int lastID = -1;
@@ -48,6 +48,8 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+
+        roamPoints = WaypointsController.waypoints.ToArray();
 
         if(currentAI == AI.Roam)
         {

@@ -12,8 +12,24 @@ public class Dog : MonoBehaviour
     public Enemy target;
     public float movespeed;
     private bool hasTarget = false;
+    private Vector3 idleTarget;
+    public float idlesize = 2;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        Vector2 randCirc = Random.insideUnitCircle;
+        idleTarget = anchor.position + new Vector3(randCirc.x * idlesize, 0, randCirc.y * idlesize);
+    }
+
+    private void FixedUpdate()
+    {
+        if (Random.Range(0, 200) <= 1)
+        {
+            Vector2 randCirc = Random.insideUnitCircle;
+            idleTarget = anchor.position + new Vector3(randCirc.x * idlesize, 0, randCirc.y* idlesize);
+        }
+    }
+
     void Update()
     {
 
@@ -31,8 +47,10 @@ public class Dog : MonoBehaviour
         }
         else
         {
-            Vector2 randCirc = Random.insideUnitCircle;
-            transform.position += (anchor.position + new Vector3(randCirc.x,0,randCirc.y)  - transform.position).normalized * movespeed * Time.deltaTime;
+            if (Vector3.Distance(transform.position, idleTarget) >= 0.1f)
+            {
+                transform.position += (idleTarget - transform.position).normalized * movespeed * Time.deltaTime;
+            }
 
             if (Random.Range(0, randomDelay) == 0)
             {
