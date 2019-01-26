@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class WaveController : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class WaveController : MonoBehaviour
     private SpawnController[] spawners;
     [SerializeField]
     private Enemy neighbour;
+
+    public UnityEvent newWave;
 
     private void Update()
     {
@@ -36,8 +40,11 @@ public class WaveController : MonoBehaviour
                 currentwave = waves.Length - 1;
             }
             waveCooldown = waves[currentwave].waitTime;
+            newWave?.Invoke();
         }
 
     }
+
+    public int GetWave() => currentwave;
 
 }

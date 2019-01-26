@@ -36,6 +36,7 @@ public class ShopItem : MonoBehaviour
         {
             buyButton.interactable = false;
             buyText.text = "SOLD OUT";
+            icon.color = Color.grey;
             return;
         }
         else
