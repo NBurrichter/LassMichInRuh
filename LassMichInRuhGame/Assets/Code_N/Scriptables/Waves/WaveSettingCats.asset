@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3dd574b2e951d1846bdd8ccd21118727, type: 3}
-  m_Name: WaveSetting4
+  m_Name: WaveSettingCats
   m_EditorClassIdentifier: 
-  spawnerToActivate: 00000000000000000200000004000000
-  waitTime: 25
+  spawnerToActivate: 0000000001000000
+  waitTime: 50
   neighbour: 0
