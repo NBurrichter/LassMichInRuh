@@ -8,6 +8,7 @@ public class SanityController : MonoBehaviour
     public static SanityController instance { get; private set; }
     public float maxSanity = 100;
     public UnityEvent OnInsane;
+    public float Sanity => sanity;
     float sanity;
 
     private void Awake()
