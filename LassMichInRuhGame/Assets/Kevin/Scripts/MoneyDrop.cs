@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoneyDrop : MonoBehaviour
 {
     public float smoothingTime = 0.1f;
+    public int awardAmount = 30;
     Transform target;
 
     private void OnTriggerEnter(Collider other)
@@ -26,7 +27,7 @@ public class MoneyDrop : MonoBehaviour
             yield return null;
         }
 
-        MoneyController.Amount += 30;
+        MoneyController.Amount += awardAmount;
         Destroy(gameObject);
     }
 }
