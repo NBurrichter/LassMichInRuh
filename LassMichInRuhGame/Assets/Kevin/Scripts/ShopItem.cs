@@ -35,7 +35,7 @@ public class ShopItem : MonoBehaviour
         if (upgradesLeft <= 0)
         {
             buyButton.interactable = false;
-            buyText.text = "No Upgrades left";
+            buyText.text = "SOLD OUT";
             return;
         }
         else

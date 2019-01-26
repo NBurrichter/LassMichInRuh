@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9eca60f0d7e83d64e93c62ab8945ec43, type: 3}
-  m_Name: Weapon
+  m_Name: Laser Eye Surgery
   m_EditorClassIdentifier: 
   icon: {fileID: 21300008, guid: 7b20d308cb0e31d4383998b230adff5a, type: 3}
   description: Pew Pew Pew
-  cost: 100
+  cost: 999
+  costIncrease: 0
+  maxUpgrades: 0
