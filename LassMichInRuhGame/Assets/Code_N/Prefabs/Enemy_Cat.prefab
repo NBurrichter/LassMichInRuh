@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poopTime: 5
-  poop: {fileID: 900694418835548340}
+  poop: {fileID: 1663271146998224968, guid: 0c895d8571fd79049b5e262cf1482481, type: 3}
 --- !u!1 &1114400348323925899
 GameObject:
   m_ObjectHideFlags: 0
