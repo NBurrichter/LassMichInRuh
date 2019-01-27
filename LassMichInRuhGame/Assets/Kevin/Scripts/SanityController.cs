@@ -9,17 +9,21 @@ public class SanityController : MonoBehaviour
     public float maxSanity = 100;
     public UnityEvent OnInsane;
     public float Sanity => sanity;
+    public float TimeSane => Sanity > 0 ? Time.time - startTime : deathTime - startTime;
     float sanity;
+    float startTime;
+    float deathTime;
 
     private void Awake()
     {
         instance = this;
         sanity = maxSanity;
+        startTime = Time.time;
     }
 
     public void AddSanity(float amount)
     {
-        sanity = Mathf.Max(sanity + amount, maxSanity);
+        sanity = Mathf.Min(sanity + amount, maxSanity);
     }
 
     public void RemoveSanity(float amount)
@@ -28,6 +32,7 @@ public class SanityController : MonoBehaviour
         if (sanity <= 0)
         {
             sanity = 0;
+            deathTime = Time.time;
             OnInsane.Invoke();
         }
     }

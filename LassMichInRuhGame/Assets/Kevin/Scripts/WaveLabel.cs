@@ -16,7 +16,15 @@ public class WaveLabel : MonoBehaviour
     private void OnEnable()
     {
         text.text = $"Wave {controller.GetWave()}";
-        StartCoroutine(Animation());
+        if (SanityController.instance.Sanity > 0)
+        {
+            text.enabled = true;
+            StartCoroutine(Animation());
+        }
+        else
+        {
+            text.enabled = false;
+        }
     }
 
     IEnumerator Animation()
