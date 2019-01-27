@@ -21,7 +21,7 @@ public class MoneyDrop : MonoBehaviour
     IEnumerator Homing()
     {
         var velocity = Vector3.zero;
-        while ((transform.position - target.position).magnitude > 0.1f)
+        while ((transform.position - target.position).magnitude > 0.5f)
         {
             transform.position = Vector3.SmoothDamp(transform.position, target.position, ref velocity, smoothingTime);
             yield return null;
