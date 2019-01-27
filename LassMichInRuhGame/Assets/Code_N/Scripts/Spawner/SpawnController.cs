@@ -12,6 +12,7 @@ public class SpawnController : MonoBehaviour
     private float altChance = 0.5f;
     [SerializeField]
     private float spawnCooldown = 5;
+    [SerializeField]
     private float spawnTimeReduction = 0.95f;
     [SerializeField]
     private float minRandomTime = 0.5f;
@@ -27,6 +28,8 @@ public class SpawnController : MonoBehaviour
     [SerializeField]
     private Transform firstWaypoint;
 
+    public bool disabled = true;
+
     void Start()
     {
         GetNewCooldown();
@@ -34,13 +37,16 @@ public class SpawnController : MonoBehaviour
 
     void Update()
     {
-        /*currentCooldown -= Time.deltaTime;
-        if(currentCooldown <= 0)
+        if (disabled)
+            return;
+
+        currentCooldown -= Time.deltaTime;
+        if (currentCooldown <= 0)
         {
             repeatCounter = 0;
-            InvokeRepeating("SpawnChar", 0, repeatTime);
+            SpawnCharAlt();
             GetNewCooldown();
-        }*/
+        }
     }
 
     private void GetNewCooldown()
@@ -73,5 +79,10 @@ public class SpawnController : MonoBehaviour
         {
             CancelInvoke();
         }*/
+    }
+
+    void SpawnCharAlt()
+    {
+        Instantiate(spawnObject, transform.position, Quaternion.Euler(0, 0, 0));
     }
 }
