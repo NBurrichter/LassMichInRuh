@@ -9,6 +9,15 @@ public class SellDude : MonoBehaviour
     [SerializeField]
     private float annoy = 1;
 
+    [SerializeField]
+    private AudioClip sound;
+    AudioSource source;
+
+    private void Start()
+    {
+        source = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         annoydelay -= Time.deltaTime;
@@ -16,6 +25,8 @@ public class SellDude : MonoBehaviour
         {
             annoydelay = 1;
             SanityController.instance.RemoveSanity(annoy);
+            source.PlayOneShot(sound);
+
         }
     }
 
