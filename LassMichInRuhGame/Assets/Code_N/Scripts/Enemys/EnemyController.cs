@@ -139,6 +139,16 @@ public class EnemyController : MonoBehaviour
         if (anim == null)
             return;
 
+        
+        if(agent.velocity.magnitude <= 0.1f)
+        {
+            anim.speed = 0;
+        }
+        else
+        {
+            anim.speed = 1;
+        }
+
         if(Vector3.Dot(agent.desiredVelocity.normalized,Vector3.forward)>= 0.5f)
         {
             anim.SetBool("Up", true);

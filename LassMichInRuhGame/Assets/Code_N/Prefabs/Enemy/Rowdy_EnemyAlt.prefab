@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 559070843}
   - component: {fileID: 559070836}
   m_Layer: 10
-  m_Name: Rowdy_Enemy
+  m_Name: Rowdy_EnemyAlt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +178,7 @@ Animator:
   m_GameObject: {fileID: 559070835}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 669d6f21896908e43ab7a841c8142ace, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1c1f9e7658f0893438952d1234b8dfaa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

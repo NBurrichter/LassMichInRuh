@@ -2632,6 +2632,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 900694418835548340, guid: 9472a3b4fe20a7a4f8075e74478af8c8,
     type: 3}
+  altSpawn: {fileID: 0}
+  altChance: 0.5
   spawnCooldown: 1
   minRandomTime: 0.5
   maxRandomTime: 1.5
@@ -4051,6 +4053,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 900694418835548340, guid: 0fed9538b7e08ec47a99935738750776,
     type: 3}
+  altSpawn: {fileID: 0}
+  altChance: 0.5
   spawnCooldown: 1
   minRandomTime: 0.5
   maxRandomTime: 1.5
@@ -5370,6 +5374,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 559070835, guid: 3b14e02ccf64de446918937c50bf9eea, type: 3}
+  altSpawn: {fileID: 0}
+  altChance: 0.5
   spawnCooldown: 8
   minRandomTime: 1
   maxRandomTime: 2
@@ -5420,6 +5426,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 694830003, guid: 17bf4c37dc7f01e4580747edb116266b, type: 3}
+  altSpawn: {fileID: 0}
+  altChance: 0.5
   spawnCooldown: 3
   minRandomTime: 10
   maxRandomTime: 15
@@ -20482,6 +20490,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 694830003, guid: 17bf4c37dc7f01e4580747edb116266b, type: 3}
+  altSpawn: {fileID: 0}
+  altChance: 0.5
   spawnCooldown: 8
   minRandomTime: 4
   maxRandomTime: 5
@@ -21673,6 +21683,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 559070835, guid: 663fada1760a3b949ba0aaefc59ede6d, type: 3}
+  altSpawn: {fileID: 559070835, guid: 75a0adb122d2d1443af1c93022e743fe, type: 3}
+  altChance: 0.5
   spawnCooldown: 8
   minRandomTime: 1
   maxRandomTime: 2
@@ -27973,6 +27985,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 559070835, guid: 3b14e02ccf64de446918937c50bf9eea, type: 3}
+  altSpawn: {fileID: 0}
+  altChance: 0.5
   spawnCooldown: 8
   minRandomTime: 1
   maxRandomTime: 2
@@ -36010,6 +36024,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 900694418835548340, guid: 9472a3b4fe20a7a4f8075e74478af8c8,
     type: 3}
+  altSpawn: {fileID: 0}
+  altChance: 0.5
   spawnCooldown: 1
   minRandomTime: 0.5
   maxRandomTime: 1.5
@@ -42569,6 +42585,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 559070835, guid: 663fada1760a3b949ba0aaefc59ede6d, type: 3}
+  altSpawn: {fileID: 559070835, guid: 75a0adb122d2d1443af1c93022e743fe, type: 3}
+  altChance: 0.5
   spawnCooldown: 8
   minRandomTime: 1
   maxRandomTime: 2

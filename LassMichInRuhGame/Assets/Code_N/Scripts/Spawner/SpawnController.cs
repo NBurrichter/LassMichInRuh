@@ -7,6 +7,10 @@ public class SpawnController : MonoBehaviour
     [SerializeField]
     private GameObject spawnObject;
     [SerializeField]
+    private GameObject altSpawn;
+    [SerializeField]
+    private float altChance = 0.5f;
+    [SerializeField]
     private float spawnCooldown = 5;
     private float spawnTimeReduction = 0.95f;
     [SerializeField]
@@ -54,8 +58,16 @@ public class SpawnController : MonoBehaviour
 
     public void SpawnChar()
     {
-        GameObject enemy = Instantiate(spawnObject, transform.position, Quaternion.Euler(0, 0, 0));
-        enemy.GetComponent<EnemyController>().SetWalkTarget(firstWaypoint);
+        if (Random.Range(0.0f, 1.0f) > altChance && altSpawn != null)
+        {
+            GameObject enemy = Instantiate(altSpawn, transform.position, Quaternion.Euler(0, 0, 0));
+            enemy.GetComponent<EnemyController>().SetWalkTarget(firstWaypoint);
+        }
+        else
+        {
+            GameObject enemy = Instantiate(spawnObject, transform.position, Quaternion.Euler(0, 0, 0));
+            enemy.GetComponent<EnemyController>().SetWalkTarget(firstWaypoint);
+        }
         /*repeatCounter++;
         if(repeatCounter >= repeats)
         {
