@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a336979bb3c9243b2814cd8c218de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  annoydelay: 5
+  annoydelay: 6
   annoy: 1
 --- !u!1 &1299034898432793819
 GameObject:

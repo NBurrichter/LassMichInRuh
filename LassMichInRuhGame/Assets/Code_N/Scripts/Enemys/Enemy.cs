@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     public Transform grillPoint;
     public float grillTime;
     public ParticleSystem smokeParticle;
+    private bool grilling = false;
 
     private void Start()
     {
@@ -38,9 +39,16 @@ public class Enemy : MonoBehaviour
             if (Vector3.Distance(grillPoint.position, transform.position) <= 0.5f)
             {
                 grillTime += Time.deltaTime;
-                if (grillTime >= 3)
+                if(grillTime >= 1 && grilling)
+                {
+                    SanityController.instance.RemoveSanity(1);
+                    grillTime = 0;
+                }
+                if (grillTime >= 3 && !grilling)
                 {
                     smokeParticle.Play();
+                    grilling = true;
+                    grillTime = 0;
                 }
             }
         }
@@ -61,6 +69,7 @@ public class Enemy : MonoBehaviour
                 flee = true;
                 smokeParticle.Stop();
                 grillTime = 0;
+                grilling = false;
             }
             else
             {

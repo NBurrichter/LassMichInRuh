@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd574b2e951d1846bdd8ccd21118727, type: 3}
   m_Name: WaveSetting1
   m_EditorClassIdentifier: 
-  spawnerToActivate: 0000000001000000
-  waitTime: 5
+  spawnerToActivate: 000000000000000001000000
+  waitTime: 8
   neighbour: 0

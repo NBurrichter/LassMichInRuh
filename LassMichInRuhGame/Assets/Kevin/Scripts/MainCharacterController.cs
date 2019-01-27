@@ -138,7 +138,7 @@ public class MainCharacterController : MonoBehaviour
             plane.Raycast(ray, out enter);
             var mousePos = ray.GetPoint(enter);
             var fireDirection = mousePos - transform.position;
-            if (Time.time >= lastFire + (1 / fireRate))
+            if (Time.time >= lastFire + (1 / fireRate) * SanityController.instance.Sanity / 50)
             {
                 fireDirection.y = 0;
                 fireDirection = fireDirection.normalized;

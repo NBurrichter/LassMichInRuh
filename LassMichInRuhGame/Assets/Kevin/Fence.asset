@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: c53671e5a635a7e4eb447b6cd8511449, type: 3}
   description: A Fence, no offense
-  cost: 50
-  costIncrease: 0
+  cost: 25
+  costIncrease: 5
   maxUpgrades: 3
