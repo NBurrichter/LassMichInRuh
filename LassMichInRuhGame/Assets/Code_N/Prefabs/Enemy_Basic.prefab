@@ -176,10 +176,24 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  OnNeighbourDie:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnNeighbourReset:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   deathObjects:
   - {fileID: 6195620431740399020, guid: 851b4a9f97947a445bfbdf0c420c96fc, type: 3}
   hitObject:
   - {fileID: 6195620431740399020, guid: 851b4a9f97947a445bfbdf0c420c96fc, type: 3}
+  Neighbour: 0
+  grillPoint: {fileID: 0}
+  grillTime: 0
+  smokeParticle: {fileID: 0}
 --- !u!54 &2208511569679891478
 Rigidbody:
   m_ObjectHideFlags: 0

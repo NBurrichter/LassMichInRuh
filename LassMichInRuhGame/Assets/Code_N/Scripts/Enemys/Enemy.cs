@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour
                 foreach (GameObject obj in deathObjects)
                 {
                     GameObject spawned = Instantiate(obj, transform.position, obj.transform.rotation);
-                    Destroy(spawned, 9);
+                    //Destroy(spawned, 9);
                 }
                 OnDie.Invoke();
                 Destroy(gameObject);
@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour
             foreach (GameObject obj in hitObject)
             {
                 GameObject spawned = Instantiate(obj, transform.position, obj.transform.rotation);
-                Destroy(spawned, 9);
+                //Destroy(spawned, 9);
             }
         }
     }
