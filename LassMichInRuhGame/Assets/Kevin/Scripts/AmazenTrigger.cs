@@ -5,6 +5,7 @@ using UnityEngine;
 public class AmazenTrigger : MonoBehaviour
 {
     public GameObject store;
+    public GameObject notification;
     bool inside = false;
 
     private void OnTriggerEnter(Collider other)
