@@ -27,6 +27,9 @@ public class MainCharacterController : MonoBehaviour
 
     const int castsPerCount = 5;
 
+    public AudioSource shootSound;
+    public Animator anim;
+
     private void Awake()
     {
         col = GetComponent<Collider>();
@@ -37,6 +40,14 @@ public class MainCharacterController : MonoBehaviour
     private void Update()
     {
         var axis = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        if(Mathf.Abs(axis.x)> 0.1f || Mathf.Abs(axis.z) > 0.1f)
+        {
+            anim.speed = 1;
+        }
+        else
+        {
+            anim.speed = 0;
+        }
         var direction = axis.normalized;
         if (activeSlows <= 0)
         {
@@ -159,6 +170,9 @@ public class MainCharacterController : MonoBehaviour
                 controller.direction = fireDirection;
                 //controller.speed = 1;
                 //Destroy(bullet, 1);
+
+                shootSound.pitch = Random.Range(0.9f, 1.1f);
+                shootSound.Play();
             }
             AdjustOrientation(fireDirection);
         }
@@ -172,13 +186,19 @@ public class MainCharacterController : MonoBehaviour
         }
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.z))
         {
-            renderer.sprite = leftSprite;
+
             if (direction.x < 0)
             {
+                anim.SetBool("Up", false);
+                anim.SetBool("Side", true);
+                anim.SetBool("Down", false);
                 renderer.flipX = false;
             }
             else if (direction.x > 0)
             {
+                anim.SetBool("Up", false);
+                anim.SetBool("Side", true);
+                anim.SetBool("Down", false);
                 renderer.flipX = true;
             }
 
@@ -187,11 +207,15 @@ public class MainCharacterController : MonoBehaviour
         {
             if (direction.z > 0)
             {
-                renderer.sprite = upSprite;
+                anim.SetBool("Up", true);
+                anim.SetBool("Side", false);
+                anim.SetBool("Down", false);
             }
             else if (direction.z < 0)
             {
-                renderer.sprite = downSprite;
+                anim.SetBool("Up", false);
+                anim.SetBool("Side", false);
+                anim.SetBool("Down", true);
             }
         }
     }

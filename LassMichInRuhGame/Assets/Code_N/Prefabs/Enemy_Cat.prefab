@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1045294408445464930}
   - component: {fileID: 1062898848496864409}
   - component: {fileID: 8709362141961955039}
+  - component: {fileID: 8990087147180036004}
   m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
@@ -88,7 +89,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17739296630778312}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 084e5d4e9a79ef24aa37d030639f1b0f, type: 2}
   m_CullingMode: 0
@@ -99,6 +100,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8990087147180036004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17739296630778312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2996f87f83c4cad4ba9ad7d0ba9041de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomSprite: {fileID: 21300002, guid: 2b4488a19b9a05b4cb485280a8591405, type: 3}
+  chance: 100
 --- !u!1 &900694418835548340
 GameObject:
   m_ObjectHideFlags: 0

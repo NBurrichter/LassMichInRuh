@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1045294408445464930}
   - component: {fileID: 1062898848496864409}
   - component: {fileID: 8709362141961955039}
-  - component: {fileID: 6723478135768802299}
+  - component: {fileID: 1609906739171162126}
   m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
@@ -100,7 +100,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6723478135768802299
+--- !u!114 &1609906739171162126
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 2065191036923206480}
   - component: {fileID: 578937386}
   m_Layer: 10
-  m_Name: Enemy_CatAttack
+  m_Name: Enemy_CatTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0c760c4be242d4bb6ce7bbef19da4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentAI: 0
+  currentAI: 2
   sprite: {fileID: 1062898848496864409}
   player: {fileID: 0}
   attackSettings: {fileID: 11400000, guid: a9fbc9f5fed64ed49a6662451e7bb696, type: 2}

@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94208721542d9354dbdc2df6700b0c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 55
   OnDie:
     m_PersistentCalls:
       m_Calls: []
@@ -110,6 +110,7 @@ MonoBehaviour:
   deathObjects:
   - {fileID: 6195620431740399020, guid: 851b4a9f97947a445bfbdf0c420c96fc, type: 3}
   - {fileID: 2515281393178914800, guid: 796415ec8153d9447ba7425e08048810, type: 3}
+  - {fileID: 8004711265824508633, guid: 5456e15b9675f344ab38c3a6a18b992e, type: 3}
   hitObject:
   - {fileID: 6195620431740399020, guid: 4667579fe036c734cb1b55edfbf5ea90, type: 3}
   Neighbour: 0
@@ -160,11 +161,11 @@ MonoBehaviour:
   attackMask:
     serializedVersion: 2
     m_Bits: 4096
-  aggroRange: 5
-  attackCooldown: 5
+  aggroRange: 6
+  attackCooldown: 4
   projectile: {fileID: 189872014966149877, guid: 45e2cdb35e7ff8c49a1cd06bfabf2043,
     type: 3}
-  repeats: 5
+  repeats: 4
   repeatTime: 0.1
   firePoint: {fileID: 1930193363}
 --- !u!95 &559070836

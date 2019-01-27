@@ -22,7 +22,7 @@ public class WaveController : MonoBehaviour
     private void Update()
     {
         waveCooldown -= Time.deltaTime;
-        Debug.Log(currentwave);
+        //Debug.Log(currentwave);
         if (waveCooldown <= 0)
         {
             foreach(int spawnerNumber in waves[currentwave].spawnerToActivate)
