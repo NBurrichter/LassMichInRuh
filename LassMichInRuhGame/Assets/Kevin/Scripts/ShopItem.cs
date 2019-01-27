@@ -36,12 +36,14 @@ public class ShopItem : MonoBehaviour
         {
             buyButton.interactable = false;
             buyText.text = "SOLD OUT";
+            buyText.color = Color.red;
             icon.color = Color.grey;
             return;
         }
         else
         {
             buyButton.interactable = MoneyController.Amount >= currentCost;
+            buyText.color = buyButton.interactable ? Color.black : Color.gray;
         }
         
     }

@@ -35,5 +35,14 @@ public class AmazenTrigger : MonoBehaviour
         {
             store.SetActive(!store.activeSelf);
         }
+
+        if (inside && !store.activeSelf)
+        {
+            notification.SetActive(true);
+        }
+        else if (notification.activeSelf)
+        {
+            notification.SetActive(false);
+        }
     }
 }
