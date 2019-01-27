@@ -221,9 +221,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   deathObjects:
-  - {fileID: 6195620431740399020, guid: 851b4a9f97947a445bfbdf0c420c96fc, type: 3}
+  - {fileID: 6195620431740399020, guid: 08caebe8a6c2dc243a0f9ff6ba950715, type: 3}
   hitObject:
-  - {fileID: 6195620431740399020, guid: 851b4a9f97947a445bfbdf0c420c96fc, type: 3}
+  - {fileID: 6195620431740399020, guid: 08caebe8a6c2dc243a0f9ff6ba950715, type: 3}
   Neighbour: 0
   grillPoint: {fileID: 0}
   grillTime: 0
