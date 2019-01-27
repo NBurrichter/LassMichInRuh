@@ -41,18 +41,19 @@ public class ShopItem : MonoBehaviour
         }
         else
         {
-            buyButton.interactable = MoneyController.Amount >= upgrade.cost;
+            buyButton.interactable = MoneyController.Amount >= currentCost;
         }
         
     }
 
     public void TriggerPurchase()
     {
-        if (MoneyController.Amount >= upgrade.cost)
+        if (MoneyController.Amount >= currentCost)
         {
+            var cost = currentCost;
             currentCost += upgrade.costIncrease;
             upgradesLeft--;
-            MoneyController.Amount -= upgrade.cost;
+            MoneyController.Amount -= cost;
             onPurchase?.Invoke();
         }
     }
