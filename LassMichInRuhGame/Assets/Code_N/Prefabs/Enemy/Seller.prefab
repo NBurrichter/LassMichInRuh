@@ -109,6 +109,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   deathObjects:
   - {fileID: 6195620431740399020, guid: 851b4a9f97947a445bfbdf0c420c96fc, type: 3}
+  - {fileID: 8968448346126754104, guid: 1365889ea426af64190c4e9bd86b943a, type: 3}
   hitObject:
   - {fileID: 6195620431740399020, guid: 4667579fe036c734cb1b55edfbf5ea90, type: 3}
   Neighbour: 0
